@@ -2,13 +2,17 @@
 
 > **Read-only archive of released versions of ernestdefoe/topic-map.** Not for installation: use [Packagist](https://packagist.org/packages/ernestdefoe/topic-map) or the [upstream repository](https://github.com/ernestdefoe/topic-map).
 
-**0** versions archived · Latest: [`v0.2.1`](https://github.com/flarchive/ernestdefoe-topic-map/tree/archive/v0.2.1) · License: `MIT` · Flarum: `^2.0`
+**5** versions archived · Latest: [`v0.2.1`](https://github.com/flarchive/ernestdefoe-topic-map/tree/archive/v0.2.1) · License: `MIT` · Flarum: `^2.0`
 
 ## Archived Versions
 
 | Version | Released | Flarum | Source |
 |---|---|---|---|
-| — | — | — | — |
+| `v0.1.0` | 2026-07-04 | `^2.0` | [Browse](https://github.com/flarchive/ernestdefoe-topic-map/tree/archive/v0.1.0) |
+| `v0.1.1` | 2026-07-04 | `^2.0` | [Browse](https://github.com/flarchive/ernestdefoe-topic-map/tree/archive/v0.1.1) |
+| `v0.1.2` | 2026-07-05 | `^2.0` | [Browse](https://github.com/flarchive/ernestdefoe-topic-map/tree/archive/v0.1.2) |
+| `v0.2.0` | 2026-07-05 | `^2.0` | [Browse](https://github.com/flarchive/ernestdefoe-topic-map/tree/archive/v0.2.0) |
+| `v0.2.1` | 2026-09-12 | `^2.0` | [Browse](https://github.com/flarchive/ernestdefoe-topic-map/tree/archive/v0.2.1) |
 
 Catalog entry: [packages/ernestdefoe-topic-map.json](https://github.com/flarchive/archive-index/blob/main/packages/ernestdefoe-topic-map.json)
 
