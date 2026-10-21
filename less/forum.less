@@ -1,0 +1,102 @@
+// Core's .Post-footer is a zero-height inline-block that shares a line with
+// the floated .Post-actions; a one-line "X liked this" fits that, but the
+// map then overflowed the post (off a card's bottom edge, into the next
+// post). When the map is in it, make the footer a real block on its own row
+// under the actions, so every theme's footer column (padding, max-width)
+// lines it up with the post body.
+.Post-footer:has(> ul > .item-topicMap) {
+  display: block;
+  height: auto;
+  clear: both;
+}
+.Post-footer > ul > .item-topicMap {
+  display: block;
+  margin-bottom: 0;
+}
+
+.TopicMap {
+  margin-top: 10px;
+  border-top: 1px solid var(--control-bg);
+  padding-top: 12px;
+  width: 100%;
+}
+.TopicMap--loading { padding: 8px 0; }
+
+.TopicMap-bar {
+  display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+}
+.TopicMap-stats {
+  display: flex; align-items: center; gap: 22px; flex-wrap: wrap; flex: 1;
+}
+.TopicMap-stat {
+  display: flex; flex-direction: column; align-items: center; gap: 1px;
+  border: 0; background: transparent; padding: 0;
+  b { font-size: 15px; font-weight: 800; color: var(--text-color); }
+  span { font-size: 11px; color: var(--muted-color); }
+}
+.TopicMap-stat--btn { cursor: pointer; &:hover b { color: var(--primary-color); } }
+
+.TopicMap-users { flex-direction: row; gap: 8px; }
+.TopicMap-statMeta {
+  display: flex; flex-direction: column; align-items: center; gap: 1px;
+  b { font-size: 15px; font-weight: 800; }
+  span { font-size: 11px; color: var(--muted-color); }
+}
+.TopicMap-avatars { display: flex; align-items: center; }
+.TopicMap-avatar {
+  width: 26px; height: 26px; margin-right: -8px; border-radius: 50%;
+  border: 2px solid var(--body-bg); object-fit: cover;
+  &--letter {
+    display: grid; place-items: center; background: var(--control-bg);
+    color: var(--text-color); font-size: 11px; font-weight: 700;
+  }
+}
+.TopicMap-avatars .TopicMap-avatar:last-child { margin-right: 0; }
+
+.TopicMap-topBtn {
+  border-radius: 999px;
+  &.is-open { background: var(--control-bg); }
+}
+
+.TopicMap-panel {
+  margin-top: 12px; display: flex; flex-direction: column; gap: 8px;
+  position: relative; z-index: 2;
+}
+.TopicMap-reply {
+  display: flex; gap: 10px; align-items: flex-start; text-align: left;
+  border: 1px solid var(--control-bg); background: var(--body-bg);
+  border-radius: 10px; padding: 10px 12px; cursor: pointer;
+  &:hover { background: var(--control-bg); }
+  .TopicMap-avatar { flex: none; margin-right: 0; }
+}
+.TopicMap-replyBody { min-width: 0; }
+.TopicMap-replyMeta {
+  display: flex; align-items: baseline; gap: 10px;
+  b { font-size: 13px; }
+}
+.TopicMap-replyLikes { font-size: 11.5px; color: var(--muted-color); }
+.TopicMap-replyExcerpt { font-size: 12.5px; color: var(--muted-color); margin-top: 2px; }
+
+// Scoped under .TopicMap to beat core's `.Post-footer a` (inline-block, bold).
+.TopicMap .TopicMap-link {
+  display: flex; font-weight: normal; color: var(--text-color); align-items: baseline; gap: 10px; min-width: 0;
+  padding: 6px 12px; border: 1px solid var(--control-bg); border-radius: 10px;
+  background: var(--body-bg);
+  &:hover { background: var(--control-bg); text-decoration: none; }
+}
+.TopicMap-linkHost { font-weight: 700; font-size: 12.5px; flex: none; }
+.TopicMap-linkUrl {
+  font-size: 11.5px; color: var(--muted-color);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.TopicMap-linkCount { flex: none; font-size: 11px; color: var(--muted-color); }
+
+// Phone: one row of stats edge to edge (three faces is plenty there), the
+// Top Replies button on its own full-width row underneath.
+@media (max-width: 767.98px) {
+  .TopicMap-bar { flex-direction: column; align-items: stretch; gap: 12px; }
+  .TopicMap-stats { flex-wrap: nowrap; justify-content: space-between; gap: 8px; }
+  .TopicMap-avatars .TopicMap-avatar:nth-child(n+4) { display: none; }
+  .TopicMap-avatars .TopicMap-avatar:nth-child(3) { margin-right: 0; }
+  .TopicMap-topBtn { justify-content: center; }
+}
